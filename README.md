@@ -1,7 +1,7 @@
 
   # Yale-remake
 
-  This is a code bundle for Yale-remake. The original project is available at https://www.figma.com/design/wucgpueVIr1i9T9fQ7SPkS/Yale-remake.
+  https://adrianmtztrev.github.io/Yale/
 
   ## Running the code
 
