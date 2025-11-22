@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';import { useState, useEffect } from 
 import './styles.css';
 import { Calendar } from './components/ui/calendar';
 import { ImageWithFallback } from './components/figma/ImageWithFallback';
+import { OnboardingPopup } from './components/OnboardingPopup';
 import yaleLogo from 'figma:asset/216b5a71c0855464d593bad950a7a8966d534568.png';
 
 // Interactive Deans Carousel Component
@@ -14,85 +15,85 @@ function DeansCarousel() {
     {
       name: "John Ferguson Weir",
       years: "1869–1913",
-      image: "https://images.unsplash.com/photo-1758270703144-bc54bafd124d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxmb3JtYWwlMjBwb3J0cmFpdCUyMGFjYWRlbWljfGVufDF8fHx8MTc2MTM0OTUwNHww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+      image: "https://images.unsplash.com/photo-1748288166888-f1bd5d6ef9ed?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxkaXN0aW5ndWlzaGVkJTIwcHJvZmVzc29yJTIwcG9ydHJhaXR8ZW58MXx8fHwxNzYzODEyOTIyfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
       current: false
     },
     {
       name: "William Sergeant Kendall",
       years: "1913–1922",
-      image: "https://images.unsplash.com/photo-1680260086952-72bf60ecd6e4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx2aW50YWdlJTIwcHJvZmVzc29yJTIwcG9ydHJhaXR8ZW58MXx8fHwxNzYxMzQ5NTA0fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+      image: "https://images.unsplash.com/photo-1668701064538-79c4c87fbeb4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzZW5pb3IlMjBhY2FkZW1pYyUyMGhlYWRzaG90fGVufDF8fHx8MTc2MzgxMjkyMnww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
       current: false
     },
     {
       name: "Everett Meeks",
       years: "1922–1947",
-      image: "https://images.unsplash.com/photo-1761243892035-c3e13829115a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBoZWFkc2hvdCUyMGZvcm1hbHxlbnwxfHx8fDE3NjEzNDk1MDV8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+      image: "https://images.unsplash.com/photo-1543132220-e7fef0b974e7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxmb3JtYWwlMjBidXNpbmVzcyUyMHBvcnRyYWl0fGVufDF8fHx8MTc2MzgxMjkyM3ww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
       current: false
     },
     {
       name: "Charles Sawyer",
       years: "1947–1957",
-      image: "https://images.unsplash.com/photo-1748288166888-f1bd5d6ef9ed?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhY2FkZW1pYyUyMGRlYW4lMjBwb3J0cmFpdHxlbnwxfHx8fDE3NjEzNDk1MDZ8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+      image: "https://images.unsplash.com/photo-1655337690286-d0f9d740299f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBoZWFkc2hvdCUyMGVkdWNhdG9yfGVufDF8fHx8MTc2MzgxMjkyM3ww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
       current: false
     },
     {
       name: "Boyd Smith",
       years: "1957–1958",
-      image: "https://images.unsplash.com/photo-1760546659331-17903ed0d447?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx1bml2ZXJzaXR5JTIwcHJvZmVzc29yJTIwZm9ybWFsfGVufDF8fHx8MTc2MTM0OTUwNnww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+      image: "https://images.unsplash.com/photo-1717068341511-204207d72705?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtYXR1cmUlMjBwcm9mZXNzaW9uYWwlMjBoZWFkc2hvdHxlbnwxfHx8fDE3NjM4MTI5MjR8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
       current: false
     },
     {
       name: "Gibson Danes",
       years: "1958–1968",
-      image: "https://images.unsplash.com/photo-1519651459912-3c00c1a9f1dc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBwb3J0cmFpdCUyMGJsYWNrJTIwd2hpdGV8ZW58MXx8fHwxNzYxMzQ5NTA3fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+      image: "https://images.unsplash.com/photo-1629507208649-70919ca33793?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxidXNpbmVzcyUyMHByb2Zlc3Npb25hbCUyMHBvcnRyYWl0fGVufDF8fHx8MTc2Mzc0OTgzMHww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
       current: false
     },
     {
       name: "Howard Weaver",
       years: "1968–1974",
-      image: "https://images.unsplash.com/photo-1568690697109-c87d0f9a7539?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxlbGVnYW50JTIwcG9ydHJhaXQlMjBmb3JtYWx8ZW58MXx8fHwxNzYxMzQ5NTA3fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+      image: "https://images.unsplash.com/photo-1762522927402-f390672558d8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjb3Jwb3JhdGUlMjBoZWFkc2hvdCUyMHByb2Zlc3Npb25hbHxlbnwxfHx8fDE3NjM3OTE0MDR8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
       current: false
     },
     {
       name: "William Bailey",
       years: "1974–1975",
-      image: "https://images.unsplash.com/photo-1510599939194-ac9fb0e57eb5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxkaXN0aW5ndWlzaGVkJTIwcG9ydHJhaXR8ZW58MXx8fHwxNzYxMzQ5NTA4fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+      image: "https://images.unsplash.com/photo-1763025957629-4074f535d001?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxmb3JtYWwlMjBwb3J0cmFpdCUyMHN1aXR8ZW58MXx8fHwxNzYzODEyOTI2fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
       current: false
     },
     {
       name: "Andrew Forge",
       years: "1975–1983",
-      image: "https://images.unsplash.com/photo-1729824186959-ba83cbd1978d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzY2hvbGFybHklMjBwb3J0cmFpdHxlbnwxfHx8fDE3NjEzNDk1MDh8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+      image: "https://images.unsplash.com/photo-1659080907111-7c726e435a28?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzY2hvbGFyJTIwaGVhZHNob3QlMjBwcm9mZXNzaW9uYWx8ZW58MXx8fHwxNzYzODEyOTI3fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
       current: false
     },
     {
       name: "David Pease",
       years: "1983–1996",
-      image: "https://images.unsplash.com/photo-1630871190283-db80301027ec?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjbGFzc2ljJTIwcG9ydHJhaXQlMjBmb3JtYWx8ZW58MXx8fHwxNzYxMzQ5NTA5fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+      image: "https://images.unsplash.com/photo-1584940120505-117038d90b05?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzZW5pb3IlMjBleGVjdXRpdmUlMjBwb3J0cmFpdHxlbnwxfHx8fDE3NjM4MTI5Mjd8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
       current: false
     },
     {
       name: "Richard Benson",
       years: "1996–2006",
-      image: "https://images.unsplash.com/photo-1629507313712-f21468afdf2e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxidXNpbmVzcyUyMHBvcnRyYWl0JTIwcHJvZmVzc2lvbmFsfGVufDF8fHx8MTc2MTI1OTg4M3ww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+      image: "https://images.unsplash.com/photo-1748288166888-f1bd5d6ef9ed?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx1bml2ZXJzaXR5JTIwZGVhbiUyMHBvcnRyYWl0fGVufDF8fHx8MTc2MzczMDAzM3ww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
       current: false
     },
     {
       name: "Robert Storr",
       years: "2006–2016",
-      image: "https://images.unsplash.com/photo-1584554376766-ac0f2c65e949?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtYXR1cmUlMjBwcm9mZXNzaW9uYWwlMjBwb3J0cmFpdHxlbnwxfHx8fDE3NjEzNDk1MDl8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+      image: "https://images.unsplash.com/photo-1717068341511-204207d72705?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtYXR1cmUlMjBwcm9mZXNzaW9uYWwlMjBoZWFkc2hvdHxlbnwxfHx8fDE3NjM4MTI5MjR8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
       current: false
     },
     {
       name: "Marta Kuzma",
       years: "2016–2021",
-      image: "https://images.unsplash.com/photo-1737574821698-862e77f044c1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxleGVjdXRpdmUlMjBwb3J0cmFpdCUyMGZvcm1hbHxlbnwxfHx8fDE3NjEzNDk1MDl8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+      image: "https://images.unsplash.com/photo-1628657485319-5865d0f2791d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxleGVjdXRpdmUlMjB3b21hbiUyMHBvcnRyYWl0fGVufDF8fHx8MTc2MzgxMjkyNHww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
       current: false
     },
     {
       name: "Kymberly Pinder",
       years: "2021–",
-      image: "https://images.unsplash.com/photo-1652471949169-9c587e8898cd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxoZWFkc2hvdCUyMHByb2Zlc3Npb25hbCUyMHdvbWFufGVufDF8fHx8MTc2MTI3OTYzMnww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+      image: "https://images.unsplash.com/photo-1758518727888-ffa196002e59?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjB3b21hbiUyMGV4ZWN1dGl2ZXxlbnwxfHx8fDE3NjM2OTYwNzR8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
       current: true
     }
   ];
@@ -1409,12 +1410,27 @@ export default function App() {
 
   return (
     <>
+      {/* Onboarding Popup */}
+      <OnboardingPopup />
+      
       {/* Header */}
       <header id="header" className="header">
         <div className="header-container">
           <div className="header-content">
             {/* Logo */}
-            <div className="header-logo" onClick={() => (window as any).navigateToHome()}>
+            <div 
+              className="header-logo" 
+              onClick={() => (window as any).navigateToHome()}
+              role="button"
+              tabIndex={0}
+              aria-label="Return to home page"
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  e.preventDefault();
+                  (window as any).navigateToHome();
+                }
+              }}
+            >
               <div className="logo-container" style={{ gap: '0.75rem' }}>
                 <img src={yaleLogo} alt="Yale School of Art" className="logo-image" style={{ height: '40px', width: 'auto' }} />
                 <div className="logo-text">
@@ -1427,7 +1443,7 @@ export default function App() {
             {/* Right Side Actions */}
             <div className="header-actions">
               {/* Login Button - Shows profile icon on mobile, text on desktop */}
-              <button className="btn btn-header btn-login" id="loginBtn" onClick={() => (window as any).navigateToLogin()}>
+              <button className="btn btn-header btn-login" id="loginBtn" onClick={() => (window as any).navigateToLogin()} aria-label="Login">
                 <svg className="icon icon-profile-mobile" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
                   <circle cx="12" cy="7" r="4"></circle>
@@ -1436,7 +1452,7 @@ export default function App() {
               </button>
 
               {/* Theme Toggle */}
-              <button className="btn btn-header btn-icon" id="themeToggle" onClick={() => (window as any).toggleTheme()}>
+              <button className="btn btn-header btn-icon" id="themeToggle" onClick={() => (window as any).toggleTheme()} aria-label="Toggle dark mode">
                 <svg id="sunIcon" className="icon theme-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <circle cx="12" cy="12" r="5"></circle>
                   <line x1="12" y1="1" x2="12" y2="3"></line>
@@ -1454,7 +1470,7 @@ export default function App() {
               </button>
 
               {/* Menu Button */}
-              <button className="btn btn-header" onClick={() => (window as any).toggleMenu()}>
+              <button className="btn btn-header" onClick={() => (window as any).toggleMenu()} aria-label="Open menu">
                 <svg id="menuIcon" className="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <line x1="3" y1="12" x2="21" y2="12"></line>
                   <line x1="3" y1="6" x2="21" y2="6"></line>
@@ -1483,7 +1499,7 @@ export default function App() {
                 <div className="logo-subtitle">SCHOOL OF ART</div>
               </div>
             </div>
-            <button className="btn btn-menu-close" onClick={() => (window as any).toggleMenu()}>
+            <button className="btn btn-menu-close" onClick={() => (window as any).toggleMenu()} aria-label="Close menu">
               <span>Close</span>
               <svg className="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <line x1="18" y1="6" x2="6" y2="18"></line>
@@ -1531,6 +1547,7 @@ export default function App() {
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="hero-apply-button"
+                  aria-label="Apply to Yale School of Art"
                 >
                   Apply to the School
                 </a>
@@ -1593,7 +1610,7 @@ export default function App() {
               </div>
               
               <div className="glance-cta">
-                <button className="btn-cta" onClick={() => (window as any).navigateToAbout()}>
+                <button className="btn-cta" onClick={() => (window as any).navigateToAbout()} aria-label="Discover our history">
                   <span>Discover Our History</span>
                   <svg className="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                     <line x1="5" y1="12" x2="19" y2="12"></line>
@@ -1686,7 +1703,7 @@ export default function App() {
         <div id="loginView" className="view hidden">
           <div className="login-container">
             <div className="login-box">
-              <button className="btn-back" onClick={() => (window as any).navigateToHome()}>
+              <button className="btn-back" onClick={() => (window as any).navigateToHome()} aria-label="Go back to home">
                 <svg className="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <line x1="19" y1="12" x2="5" y2="12"></line>
                   <polyline points="12 19 5 12 12 5"></polyline>
@@ -1716,7 +1733,7 @@ export default function App() {
                     <input type="password" placeholder="Password" className="input-field" required />
                     <button type="submit" className="btn btn-primary">Sign In</button>
                   </form>
-                  <a href="#" className="forgot-password">Forgot password?</a>
+                  <a href="#" className="forgot-password" aria-label="Recover forgotten password">Forgot password?</a>
                 </div>
               </div>
             </div>
@@ -1728,7 +1745,7 @@ export default function App() {
           <div className="about-container">
             {/* Back Button */}
             <div className="study-plans-header">
-              <button className="btn-back" onClick={() => (window as any).navigateToHome()}>
+              <button className="btn-back" onClick={() => (window as any).navigateToHome()} aria-label="Go back to home">
                 <svg className="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <line x1="19" y1="12" x2="5" y2="12"></line>
                   <polyline points="12 19 5 12 12 5"></polyline>
@@ -1798,6 +1815,7 @@ export default function App() {
                             window.speechSynthesis.speak(utterance);
                           }}
                           title="Listen to pronunciation"
+                          aria-label="Play pronunciation audio for Mohegan"
                         >
                           <svg className="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                             <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
@@ -1822,6 +1840,7 @@ export default function App() {
                             window.speechSynthesis.speak(utterance);
                           }}
                           title="Listen to pronunciation"
+                          aria-label="Play pronunciation audio for Mashantucket Pequot"
                         >
                           <svg className="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                             <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
@@ -1846,6 +1865,7 @@ export default function App() {
                             window.speechSynthesis.speak(utterance);
                           }}
                           title="Listen to pronunciation"
+                          aria-label="Play pronunciation audio for Eastern Pequot"
                         >
                           <svg className="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                             <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
@@ -1870,6 +1890,7 @@ export default function App() {
                             window.speechSynthesis.speak(utterance);
                           }}
                           title="Listen to pronunciation"
+                          aria-label="Play pronunciation audio for Schaghticoke"
                         >
                           <svg className="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                             <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
@@ -1894,6 +1915,7 @@ export default function App() {
                             window.speechSynthesis.speak(utterance);
                           }}
                           title="Listen to pronunciation"
+                          aria-label="Play pronunciation audio for Golden Hill Paugussett"
                         >
                           <svg className="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                             <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
@@ -1918,6 +1940,7 @@ export default function App() {
                             window.speechSynthesis.speak(utterance);
                           }}
                           title="Listen to pronunciation"
+                          aria-label="Play pronunciation audio for Niantic"
                         >
                           <svg className="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                             <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
@@ -1942,6 +1965,7 @@ export default function App() {
                             window.speechSynthesis.speak(utterance);
                           }}
                           title="Listen to pronunciation"
+                          aria-label="Play pronunciation audio for Quinnipiac"
                         >
                           <svg className="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                             <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
@@ -1966,6 +1990,7 @@ export default function App() {
                             window.speechSynthesis.speak(utterance);
                           }}
                           title="Listen to pronunciation"
+                          aria-label="Play pronunciation audio for Algonquian"
                         >
                           <svg className="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                             <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
@@ -2003,6 +2028,7 @@ export default function App() {
                 <button 
                   className="resource-card"
                   onClick={() => setActivePopup('calendar')}
+                  aria-label="Open academic calendars"
                 >
                   <div className="resource-icon">
                     <svg className="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -2017,6 +2043,7 @@ export default function App() {
                 <button 
                   className="resource-card"
                   onClick={() => setActivePopup('student-resources')}
+                  aria-label="Open student resources"
                 >
                   <div className="resource-icon">
                     <svg className="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -2031,6 +2058,7 @@ export default function App() {
                 <button 
                   className="resource-card"
                   onClick={() => setActivePopup('courses')}
+                  aria-label="Open courses information"
                 >
                   <div className="resource-icon">
                     <svg className="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -2043,6 +2071,7 @@ export default function App() {
                 <button 
                   className="resource-card"
                   onClick={() => setActivePopup('financial-aid')}
+                  aria-label="Open financial aid information"
                 >
                   <div className="resource-icon">
                     <svg className="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -2056,6 +2085,7 @@ export default function App() {
                 <button 
                   className="resource-card"
                   onClick={() => setActivePopup('housing')}
+                  aria-label="Open housing information"
                 >
                   <div className="resource-icon">
                     <svg className="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -2115,6 +2145,7 @@ export default function App() {
                 <button 
                   className="btn btn-primary visit-register-btn" 
                   onClick={() => window.open('https://apply.art.yale.edu/register/2026VirtualVisit1', '_blank')}
+                  aria-label="Register for virtual visit"
                   style={{ 
                     textAlign: 'center', 
                     maxWidth: '200px', 
@@ -2188,7 +2219,7 @@ export default function App() {
                 <h3 className="about-subsection-title">University Facilities</h3>
               </div>
               <div className="university-facilities-grid">
-                <a href="#" className="university-facility-item" onClick={(e) => e.preventDefault()}>
+                <a href="#" className="university-facility-item" onClick={(e) => e.preventDefault()} aria-label="Yale University Art Gallery at 1111 Chapel Street">
                   <svg className="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                     <rect x="3" y="3" width="7" height="7"></rect>
                     <rect x="14" y="3" width="7" height="7"></rect>
@@ -2197,35 +2228,35 @@ export default function App() {
                   </svg>
                   <span>Yale University Art Gallery<br/><small>1111 Chapel Street</small></span>
                 </a>
-                <a href="#" className="university-facility-item" onClick={(e) => e.preventDefault()}>
+                <a href="#" className="university-facility-item" onClick={(e) => e.preventDefault()} aria-label="Yale Center for British Art at 1080 Chapel Street">
                   <svg className="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                     <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
                     <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
                   </svg>
                   <span>Yale Center for British Art<br/><small>1080 Chapel Street</small></span>
                 </a>
-                <a href="#" className="university-facility-item" onClick={(e) => e.preventDefault()}>
+                <a href="#" className="university-facility-item" onClick={(e) => e.preventDefault()} aria-label="Yale Arts Library at 180 York Street">
                   <svg className="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                     <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
                     <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
                   </svg>
                   <span>Yale Arts Library<br/><small>180 York Street</small></span>
                 </a>
-                <a href="#" className="university-facility-item" onClick={(e) => e.preventDefault()}>
+                <a href="#" className="university-facility-item" onClick={(e) => e.preventDefault()} aria-label="Beinecke Rare Book and Manuscript Library at 121 Wall Street">
                   <svg className="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                     <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
                     <polyline points="14 2 14 8 20 8"></polyline>
                   </svg>
                   <span>Beinecke Rare Book & Manuscript Library<br/><small>121 Wall Street</small></span>
                 </a>
-                <a href="#" className="university-facility-item" onClick={(e) => e.preventDefault()}>
+                <a href="#" className="university-facility-item" onClick={(e) => e.preventDefault()} aria-label="Center for Collaborative Arts and Media at 149 York Street">
                   <svg className="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                     <circle cx="12" cy="12" r="3"></circle>
                     <path d="M12 1v6m0 6v6m5.2-13.8l-4.2 4.2m0 6l-4.2 4.2m13.2-5.2h-6m-6 0H1m13.8 5.2l-4.2-4.2m0-6L6.4 2.6"></path>
                   </svg>
                   <span>Center for Collaborative Arts and Media<br/><small>149 York Street</small></span>
                 </a>
-                <a href="#" className="university-facility-item" onClick={(e) => e.preventDefault()}>
+                <a href="#" className="university-facility-item" onClick={(e) => e.preventDefault()} aria-label="Yale Center for Engineering Innovation at 15 Prospect Street">
                   <svg className="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                     <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
                     <polyline points="2 17 12 22 22 17"></polyline>
@@ -2240,14 +2271,14 @@ export default function App() {
                 <h3 className="about-subsection-title">Facility Rules & Policies</h3>
               </div>
               <div className="rules-grid">
-                <a href="#" className="rule-item" onClick={(e) => e.preventDefault()}>
+                <a href="#" className="rule-item" onClick={(e) => e.preventDefault()} aria-label="View Appropriate Use Policy">
                   <svg className="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                     <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
                     <polyline points="14 2 14 8 20 8"></polyline>
                   </svg>
                   Appropriate Use Policy
                 </a>
-                <a href="#" className="rule-item" onClick={(e) => e.preventDefault()}>
+                <a href="#" className="rule-item" onClick={(e) => e.preventDefault()} aria-label="View Gallery Rules">
                   <svg className="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                     <rect x="3" y="3" width="7" height="7"></rect>
                     <rect x="14" y="3" width="7" height="7"></rect>
@@ -2256,7 +2287,7 @@ export default function App() {
                   </svg>
                   Gallery Rules
                 </a>
-                <a href="#" className="rule-item" onClick={(e) => e.preventDefault()}>
+                <a href="#" className="rule-item" onClick={(e) => e.preventDefault()} aria-label="View Safety Guidelines for Painting Studios">
                   <svg className="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                     <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
                     <line x1="12" y1="9" x2="12" y2="13"></line>
@@ -2264,7 +2295,7 @@ export default function App() {
                   </svg>
                   Safety Guidelines for Painting Studios
                 </a>
-                <a href="#" className="rule-item" onClick={(e) => e.preventDefault()}>
+                <a href="#" className="rule-item" onClick={(e) => e.preventDefault()} aria-label="View Safety Guidelines for Sculpture and Photography">
                   <svg className="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                     <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
                     <line x1="12" y1="9" x2="12" y2="13"></line>
@@ -2272,7 +2303,7 @@ export default function App() {
                   </svg>
                   Safety Guidelines for Sculpture & Photography
                 </a>
-                <a href="#" className="rule-item" onClick={(e) => e.preventDefault()}>
+                <a href="#" className="rule-item" onClick={(e) => e.preventDefault()} aria-label="View Painting and Sculpture Chemical Waste Questions and Answers">
                   <svg className="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                     <circle cx="12" cy="12" r="10"></circle>
                     <line x1="12" y1="16" x2="12" y2="12"></line>
@@ -2299,7 +2330,7 @@ export default function App() {
           <div className="study-plans-container">
             {/* Back Button */}
             <div className="study-plans-header">
-              <button className="btn-back" onClick={() => (window as any).navigateToHome()}>
+              <button className="btn-back" onClick={() => (window as any).navigateToHome()} aria-label="Go back to home">
                 <svg className="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <line x1="19" y1="12" x2="5" y2="12"></line>
                   <polyline points="12 19 5 12 12 5"></polyline>
@@ -2324,18 +2355,21 @@ export default function App() {
                   <button 
                     className={`study-plan-tab ${studyPlansTab === 'graduate' ? 'active' : ''}`}
                     onClick={() => setStudyPlansTab('graduate')}
+                    aria-label="View graduate study areas"
                   >
                     <h3 className="study-plan-tab-title">Graduate Study Areas</h3>
                   </button>
                   <button 
                     className={`study-plan-tab ${studyPlansTab === 'undergraduate' ? 'active' : ''}`}
                     onClick={() => setStudyPlansTab('undergraduate')}
+                    aria-label="View undergraduate studies in art"
                   >
                     <h3 className="study-plan-tab-title">Undergraduate Studies in Art</h3>
                   </button>
                   <button 
                     className={`study-plan-tab ${studyPlansTab === 'summer' ? 'active' : ''}`}
                     onClick={() => setStudyPlansTab('summer')}
+                    aria-label="View summer programs"
                   >
                     <h3 className="study-plan-tab-title">Summer Programs</h3>
                   </button>
@@ -2385,7 +2419,7 @@ export default function App() {
                       simultaneously: studio work led by faculty meeting weekly; small six-person thesis groups meeting 
                       biweekly; individual sessions with writing and editing tutors; and lectures, presentations, and workshops.
                     </p>
-                    <button className="btn-program" onClick={() => (window as any).openProgramModal('graphic-design')}>
+                    <button className="btn-program" onClick={() => (window as any).openProgramModal('graphic-design')} aria-label="Learn more about Graphic Design program">
                       <span>Learn More</span>
                       <svg className="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                         <line x1="5" y1="12" x2="19" y2="12"></line>
@@ -2429,7 +2463,7 @@ export default function App() {
                       facility, as well as digital resources available in the print studio, throughout the School, and at the 
                       Center for Collaborative Arts and Media.
                     </p>
-                    <button className="btn-program" onClick={() => (window as any).openProgramModal('painting-printmaking')}>
+                    <button className="btn-program" onClick={() => (window as any).openProgramModal('painting-printmaking')} aria-label="Learn more about Painting and Printmaking program">
                       <span>Learn More</span>
                       <svg className="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                         <line x1="5" y1="12" x2="19" y2="12"></line>
@@ -2470,7 +2504,7 @@ export default function App() {
                       In addition, a critique panel composed of faculty and other artists or critics meets weekly, as well 
                       as for a final review each term, to discuss student work.
                     </p>
-                    <button className="btn-program" onClick={() => (window as any).openProgramModal('photography')}>
+                    <button className="btn-program" onClick={() => (window as any).openProgramModal('photography')} aria-label="Learn more about Photography program">
                       <span>Learn More</span>
                       <svg className="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                         <line x1="5" y1="12" x2="19" y2="12"></line>
@@ -2517,7 +2551,7 @@ export default function App() {
                       one-on-one between students and faculty, in small groups, and within a larger group involving the whole 
                       sculpture department. Approximately ten students are admitted each year.
                     </p>
-                    <button className="btn-program" onClick={() => (window as any).openProgramModal('sculpture')}>
+                    <button className="btn-program" onClick={() => (window as any).openProgramModal('sculpture')} aria-label="Learn more about Sculpture program">
                       <span>Learn More</span>
                       <svg className="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                         <line x1="5" y1="12" x2="19" y2="12"></line>
@@ -2601,6 +2635,7 @@ export default function App() {
                   <button 
                     className="btn-cta"
                     onClick={() => window.open('https://apply.art.yale.edu/apply/', '_blank')}
+                    aria-label="Apply now to Yale School of Art"
                   >
                     <span>Apply Now</span>
                     <svg className="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -2875,7 +2910,7 @@ export default function App() {
             <div id="programModal" className="program-modal hidden">
               <div className="program-modal-overlay" onClick={() => (window as any).closeProgramModal()}></div>
               <div className="program-modal-content">
-                <button className="program-modal-close" onClick={() => (window as any).closeProgramModal()}>
+                <button className="program-modal-close" onClick={() => (window as any).closeProgramModal()} aria-label="Close modal">
                   <svg className="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                     <line x1="18" y1="6" x2="6" y2="18"></line>
                     <line x1="6" y1="6" x2="18" y2="18"></line>
@@ -2892,7 +2927,7 @@ export default function App() {
       <div id="financialAidView" className="view hidden">
         <div className="about-container">
           {/* Back Button */}
-          <button className="btn-back" onClick={() => (window as any).navigateToAbout()}>
+          <button className="btn-back" onClick={() => (window as any).navigateToAbout()} aria-label="Go back to about page">
             <svg className="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
               <line x1="19" y1="12" x2="5" y2="12"></line>
               <polyline points="12 19 5 12 12 5"></polyline>
@@ -2984,7 +3019,7 @@ export default function App() {
                 <div className="requirement-item">
                   <div className="requirement-label">International Students</div>
                   <p className="about-text">
-                    <strong>ALL FOREIGN/INTERNATIONAL APPLICANTS</strong> seeking financial aid for their time must complete the College Board CSS Profile: <a href="https://cssprofile.collegeboard.org/" target="_blank" rel="noopener noreferrer" className="inline-link">https://cssprofile.collegeboard.org/</a>
+                    <strong>ALL FOREIGN/INTERNATIONAL APPLICANTS</strong> seeking financial aid for their time must complete the College Board CSS Profile: <a href="https://cssprofile.collegeboard.org/" target="_blank" rel="noopener noreferrer" className="inline-link" aria-label="College Board CSS Profile website">https://cssprofile.collegeboard.org/</a>
                   </p>
                 </div>
 
@@ -2997,7 +3032,7 @@ export default function App() {
                     All Domestic and Foreign/International Students seeking scholarship or other need-based aid are required to provide parental information regardless of age, dependency or marital status by submitting 2023 Federal Tax Returns and W-2's, or certified/translated income tax documents from their home country for the 2023 fiscal year. Students must also submit their own tax return information from the 2023 year as well (if applicable).
                   </p>
                   <p className="about-text">
-                    Any students with questions should please contact <a href="mailto:artfinancialaid@yale.edu" className="inline-link">artfinancialaid@yale.edu</a> with questions or concerns.
+                    Any students with questions should please contact <a href="mailto:artfinancialaid@yale.edu" className="inline-link" aria-label="Email art financial aid">artfinancialaid@yale.edu</a> with questions or concerns.
                   </p>
                 </div>
               </div>
@@ -3170,7 +3205,7 @@ export default function App() {
       {activePopup === 'calendar' && (
         <div className="resource-popup-overlay" onClick={() => setActivePopup(null)}>
           <div className="resource-popup-content" onClick={(e) => e.stopPropagation()}>
-            <button className="resource-popup-close" onClick={() => setActivePopup(null)}>
+            <button className="resource-popup-close" onClick={() => setActivePopup(null)} aria-label="Close calendar popup">
               <svg className="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <line x1="18" y1="6" x2="6" y2="18"></line>
                 <line x1="6" y1="6" x2="18" y2="18"></line>
@@ -3311,7 +3346,7 @@ export default function App() {
       {activePopup === 'student-resources' && (
         <div className="resource-popup-overlay" onClick={() => setActivePopup(null)}>
           <div className="resource-popup-content" onClick={(e) => e.stopPropagation()}>
-            <button className="resource-popup-close" onClick={() => setActivePopup(null)}>
+            <button className="resource-popup-close" onClick={() => setActivePopup(null)} aria-label="Close student resources popup">
               <svg className="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <line x1="18" y1="6" x2="6" y2="18"></line>
                 <line x1="6" y1="6" x2="18" y2="18"></line>
@@ -3332,14 +3367,14 @@ export default function App() {
               </p>
 
               <div className="resource-links-grid">
-                <a href="#" className="resource-link-card">
+                <a href="#" className="resource-link-card" aria-label="View academic regulations">
                   <svg className="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                     <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
                     <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
                   </svg>
                   <span>Academic Regulations</span>
                 </a>
-                <a href="#" className="resource-link-card">
+                <a href="#" className="resource-link-card" aria-label="View Yale University resources">
                   <svg className="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                     <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
                     <circle cx="9" cy="7" r="4"></circle>
@@ -3348,7 +3383,7 @@ export default function App() {
                   </svg>
                   <span>Yale University Resources</span>
                 </a>
-                <a href="#" className="resource-link-card">
+                <a href="#" className="resource-link-card" aria-label="View resources on sexual misconduct">
                   <svg className="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                     <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
                   </svg>
@@ -3370,7 +3405,7 @@ export default function App() {
       {activePopup === 'courses' && (
         <div className="resource-popup-overlay" onClick={() => setActivePopup(null)}>
           <div className="resource-popup-content" onClick={(e) => e.stopPropagation()}>
-            <button className="resource-popup-close" onClick={() => setActivePopup(null)}>
+            <button className="resource-popup-close" onClick={() => setActivePopup(null)} aria-label="Close courses popup">
               <svg className="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <line x1="18" y1="6" x2="6" y2="18"></line>
                 <line x1="6" y1="6" x2="18" y2="18"></line>
@@ -3388,7 +3423,7 @@ export default function App() {
               </p>
 
               <div className="course-search-link">
-                <a href="https://courses.yale.edu" target="_blank" rel="noopener noreferrer" className="btn-primary">
+                <a href="https://courses.yale.edu" target="_blank" rel="noopener noreferrer" className="btn-primary" aria-label="Search Yale courses">
                   <svg className="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                     <circle cx="11" cy="11" r="8"></circle>
                     <path d="m21 21-4.35-4.35"></path>
@@ -3409,7 +3444,7 @@ export default function App() {
       {activePopup === 'financial-aid' && (
         <div className="resource-popup-overlay" onClick={() => setActivePopup(null)}>
           <div className="resource-popup-content" onClick={(e) => e.stopPropagation()}>
-            <button className="resource-popup-close" onClick={() => setActivePopup(null)}>
+            <button className="resource-popup-close" onClick={() => setActivePopup(null)} aria-label="Close financial aid popup">
               <svg className="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <line x1="18" y1="6" x2="6" y2="18"></line>
                 <line x1="6" y1="6" x2="18" y2="18"></line>
@@ -3429,6 +3464,7 @@ export default function App() {
                   setActivePopup(null);
                   (window as any).navigateToFinancialAid();
                 }}
+                aria-label="View full financial aid information"
               >
                 Read More
                 <svg className="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -3444,7 +3480,7 @@ export default function App() {
       {activePopup === 'housing' && (
         <div className="resource-popup-overlay" onClick={() => setActivePopup(null)}>
           <div className="resource-popup-content" onClick={(e) => e.stopPropagation()}>
-            <button className="resource-popup-close" onClick={() => setActivePopup(null)}>
+            <button className="resource-popup-close" onClick={() => setActivePopup(null)} aria-label="Close housing popup">
               <svg className="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <line x1="18" y1="6" x2="6" y2="18"></line>
                 <line x1="6" y1="6" x2="18" y2="18"></line>
@@ -3463,7 +3499,7 @@ export default function App() {
               </p>
 
               <div className="housing-links-popup">
-                <a href="https://www.yale.edu/housing" target="_blank" rel="noopener noreferrer" className="housing-popup-link">
+                <a href="https://www.yale.edu/housing" target="_blank" rel="noopener noreferrer" className="housing-popup-link" aria-label="Yale University Off-Campus Housing Portal">
                   <svg className="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                     <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
                     <polyline points="15 3 21 3 21 9"></polyline>
@@ -3471,7 +3507,7 @@ export default function App() {
                   </svg>
                   Yale University Off-Campus Housing Portal
                 </a>
-                <a href="http://www.yale.edu/gradhousing/" target="_blank" rel="noopener noreferrer" className="housing-popup-link">
+                <a href="http://www.yale.edu/gradhousing/" target="_blank" rel="noopener noreferrer" className="housing-popup-link" aria-label="Graduate Housing Application">
                   <svg className="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                     <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
                     <polyline points="15 3 21 3 21 9"></polyline>
@@ -3508,23 +3544,23 @@ export default function App() {
               <ul className="footer-links">
                 <li>
                   <span className="contact-label">Graduate MFA Admission</span>
-                  <a href="mailto:art.admissions@yale.edu">art.admissions@yale.edu</a>
+                  <a href="mailto:art.admissions@yale.edu" aria-label="Email Graduate MFA Admission">art.admissions@yale.edu</a>
                 </li>
                 <li>
                   <span className="contact-label">Newly Admitted Students</span>
-                  <a href="mailto:taryn.wolf@yale.edu">taryn.wolf@yale.edu</a>
+                  <a href="mailto:taryn.wolf@yale.edu" aria-label="Email Newly Admitted Students contact">taryn.wolf@yale.edu</a>
                 </li>
                 <li>
                   <span className="contact-label">Financial Aid</span>
-                  <a href="mailto:nicole.archer@yale.edu">nicole.archer@yale.edu</a>
+                  <a href="mailto:nicole.archer@yale.edu" aria-label="Email Financial Aid contact">nicole.archer@yale.edu</a>
                 </li>
                 <li>
                   <span className="contact-label">Undergraduate Art Major</span>
-                  <a href="mailto:art.dus@yale.edu">art.dus@yale.edu</a>
+                  <a href="mailto:art.dus@yale.edu" aria-label="Email Undergraduate Art Major contact">art.dus@yale.edu</a>
                 </li>
                 <li>
                   <span className="contact-label">Alumni Transcripts</span>
-                  <a href="mailto:emily.cappa@yale.edu">emily.cappa@yale.edu</a>
+                  <a href="mailto:emily.cappa@yale.edu" aria-label="Email Alumni Transcripts contact">emily.cappa@yale.edu</a>
                 </li>
               </ul>
             </div>
@@ -3535,23 +3571,23 @@ export default function App() {
               <ul className="footer-links">
                 <li>
                   <span className="contact-label">Dean's Office</span>
-                  <a href="tel:203-432-2606">203-432-2606</a>
+                  <a href="tel:203-432-2606" aria-label="Call Dean's Office">203-432-2606</a>
                 </li>
                 <li>
                   <span className="contact-label">Registrar</span>
-                  <a href="tel:203-432-2600">203-432-2600</a>
+                  <a href="tel:203-432-2600" aria-label="Call Registrar">203-432-2600</a>
                 </li>
                 <li>
                   <span className="contact-label">Digital Technology</span>
-                  <a href="mailto:art.help@yale.edu">art.help@yale.edu</a>
+                  <a href="mailto:art.help@yale.edu" aria-label="Email Digital Technology support">art.help@yale.edu</a>
                 </li>
                 <li>
                   <span className="contact-label">Public Affairs/Media</span>
-                  <a href="mailto:sarah.stevens-morling@yale.edu">sarah.stevens-morling@yale.edu</a>
+                  <a href="mailto:sarah.stevens-morling@yale.edu" aria-label="Email Public Affairs and Media contact">sarah.stevens-morling@yale.edu</a>
                 </li>
                 <li>
                   <span className="contact-label">Donations and Gifts</span>
-                  <a href="mailto:nicole.freeman@yale.edu">nicole.freeman@yale.edu</a>
+                  <a href="mailto:nicole.freeman@yale.edu" aria-label="Email Donations and Gifts contact">nicole.freeman@yale.edu</a>
                 </li>
                 <li>
                   <span className="contact-label">All Other Inquiries</span>
@@ -3564,39 +3600,39 @@ export default function App() {
             <div className="footer-column">
               <h4 className="footer-subtitle">Connect With Us</h4>
               <div className="social-links">
-                <a href="https://instagram.com/yaleschoolofart" className="social-btn" target="_blank" rel="noopener noreferrer">
+                <a href="https://instagram.com/yaleschoolofart" className="social-btn" target="_blank" rel="noopener noreferrer" aria-label="Follow Yale School of Art on Instagram">
                   <svg className="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                     <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
                     <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
                     <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
                   </svg>
                 </a>
-                <a href="https://facebook.com/yaleschoolofart" className="social-btn" target="_blank" rel="noopener noreferrer">
+                <a href="https://facebook.com/yaleschoolofart" className="social-btn" target="_blank" rel="noopener noreferrer" aria-label="Follow Yale School of Art on Facebook">
                   <svg className="icon" viewBox="0 0 24 24" fill="currentColor">
                     <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
                   </svg>
                 </a>
-                <a href="https://www.youtube.com/@yaleschoolofart1869" className="social-btn" target="_blank" rel="noopener noreferrer">
+                <a href="https://www.youtube.com/@yaleschoolofart1869" className="social-btn" target="_blank" rel="noopener noreferrer" aria-label="Watch Yale School of Art on YouTube">
                   <svg className="icon" viewBox="0 0 24 24" fill="currentColor">
                     <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"></path>
                   </svg>
                 </a>
               </div>
-              <div className="footer-links" style={{ marginTop: '1.5rem' }}>
+              <ul className="footer-links" style={{ marginTop: '1.5rem' }}>
                 <li>
                   <span className="contact-label">Norfolk Summer School</span>
-                  <a href="mailto:norfolkart@yale.edu">norfolkart@yale.edu</a>
+                  <a href="mailto:norfolkart@yale.edu" aria-label="Email Norfolk Summer School">norfolkart@yale.edu</a>
                 </li>
                 <li>
-                  <a href="https://admissions.yale.edu" target="_blank" rel="noopener noreferrer">Yale College Admissions</a>
+                  <a href="https://admissions.yale.edu" target="_blank" rel="noopener noreferrer" aria-label="Visit Yale College Admissions website">Yale College Admissions</a>
                 </li>
                 <li>
-                  <a href="https://commencement.yale.edu" target="_blank" rel="noopener noreferrer">Yale Commencement</a>
+                  <a href="https://commencement.yale.edu" target="_blank" rel="noopener noreferrer" aria-label="Visit Yale Commencement website">Yale Commencement</a>
                 </li>
                 <li>
-                  <a href="https://www.art.yale.edu/alums" target="_blank" rel="noopener noreferrer">Transcript Request Form</a>
+                  <a href="https://www.art.yale.edu/alums" target="_blank" rel="noopener noreferrer" aria-label="Submit transcript request form">Transcript Request Form</a>
                 </li>
-              </div>
+              </ul>
             </div>
           </div>
 
@@ -3604,9 +3640,9 @@ export default function App() {
           <div className="footer-bottom">
             <p>© 2025 Yale School of Art. All rights reserved.</p>
             <div className="footer-bottom-links">
-              <a href="#">Privacy Policy</a>
-              <a href="#">Terms of Use</a>
-              <a href="#">Accessibility</a>
+              <a href="#" aria-label="View privacy policy">Privacy Policy</a>
+              <a href="#" aria-label="View terms of use">Terms of Use</a>
+              <a href="#" aria-label="View accessibility information">Accessibility</a>
             </div>
           </div>
         </div>
